@@ -755,13 +755,13 @@ int secp256k1_tagged_sha256(const secp256k1_context* ctx, unsigned char *hash32,
 #endif
 
 #ifdef ENABLE_MODULE_RECOVERY
-# include "modules/recovery/main_impl.h"
+# include "modules/recovery/main_impl3.h"
 #endif
 
 #ifdef ENABLE_MODULE_EXTRAKEYS
-# include "modules/extrakeys/main_impl.h"
+# include "modules/extrakeys/main_impl2.h"
 #endif
 
 #ifdef ENABLE_MODULE_SCHNORRSIG
-# include "modules/schnorrsig/main_impl.h"
+# include "modules/schnorrsig/main_impl4.h"
 #endif
