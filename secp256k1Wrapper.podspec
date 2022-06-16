@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name = "secp256k1Wrapper"
-  s.version = "0.0.1"
+  s.version = "0.0.2"
   s.summary = "Optimized C library for EC operations on curve secp256k1"
   s.homepage = "https://github.com/greymass/secp256k1"
   s.license = { :type => "MIT", :file => "COPYING" }
   s.author = { "secp256k1 contributors" => "https://github.com/bitcoin-core/secp256k1/graphs/contributors" }
-  s.source = { :git => "https://github.com/greymass/secp256k1.git", :tag => "0.0.1" }
+  s.source = { :git => "https://github.com/portto/secp256k1.git", :tag => "0.0.2" }
   s.ios.deployment_target = '13.0'
   s.osx.deployment_target = '10.15'
   s.tvos.deployment_target = '13.0'
@@ -18,9 +18,9 @@ Pod::Spec.new do |s|
     "src/bench_ecmult.c",
     "src/bench_internal.c",
     "src/bench.c",
-    "src/modules/*/bench_impl.h",
-    "src/modules/*/tests_exhaustive_impl.h",
-    "src/modules/*/tests_impl.h",
+    "src/modules/**/bench_impl.h",
+    "src/modules/**/tests_exhaustive_impl.h",
+    "src/modules/**/tests_impl.h",
     "src/precompute_ecmult_gen.c",
     "src/precompute_ecmult.c",
     "src/tests_exhaustive.c",
