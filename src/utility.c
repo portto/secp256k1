@@ -8,7 +8,7 @@
 //  See the accompanying file LICENSE for information
 //
 
-#include "../include/Utility.h"
+#include "../include/utility.h"
 #include "./hash_impl.h"
 
 /// Exposes secp256k1 memczero implementation to the bindings target
