@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
   s.name = "secp256k1Wrapper"
-  s.version = "0.0.4"
+  s.version = "0.0.5"
   s.summary = "Optimized C library for EC operations on curve secp256k1"
-  s.homepage = "https://github.com/greymass/secp256k1"
+  s.homepage = "https://github.com/portto/secp256k1"
   s.license = { :type => "MIT", :file => "COPYING" }
   s.author = { "secp256k1 contributors" => "https://github.com/bitcoin-core/secp256k1/graphs/contributors" }
   s.source = { :git => "https://github.com/portto/secp256k1.git", :tag => s.version.to_s }
