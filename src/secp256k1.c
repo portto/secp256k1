@@ -413,6 +413,27 @@ int secp256k1_ecdsa_verify(const secp256k1_context* ctx, const secp256k1_ecdsa_s
             secp256k1_ecdsa_sig_verify(&r, &s, &q, &m));
 }
 
+int secp256k1_ecdsa_verify_with_handling_high_s(const secp256k1_context* ctx, const secp256k1_ecdsa_signature *sig, const unsigned char *msghash32, const secp256k1_pubkey *pubkey) {
+    secp256k1_ge q;
+    secp256k1_scalar r, s;
+    secp256k1_scalar m;
+    VERIFY_CHECK(ctx != NULL);
+    ARG_CHECK(msghash32 != NULL);
+    ARG_CHECK(sig != NULL);
+    ARG_CHECK(pubkey != NULL);
+
+    secp256k1_scalar_set_b32(&m, msghash32, NULL);
+    secp256k1_ecdsa_signature_load(ctx, &r, &s, sig);
+
+    if (secp256k1_scalar_is_high(&s)) {
+        secp256k1_scalar_cond_negate(&s, 1);
+    }
+
+    return (!secp256k1_scalar_is_high(&s) &&
+            secp256k1_pubkey_load(ctx, &q, pubkey) &&
+            secp256k1_ecdsa_sig_verify(&r, &s, &q, &m));
+}
+
 static SECP256K1_INLINE void buffer_append(unsigned char *buf, unsigned int *offset, const void *data, unsigned int len) {
     memcpy(buf + *offset, data, len);
     *offset += len;
